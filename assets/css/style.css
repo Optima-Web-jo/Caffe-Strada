@@ -1,0 +1,109 @@
+body {
+    font-family: 'Lato', 'Poppins', sans-serif;
+    background-color: #F9F7F2;
+    color: #222222;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #FFFFFF;
+    padding: 20px 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #222222;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+main {
+    padding: 40px;
+}
+
+.hero {
+    background-size: cover;
+    background-position: center;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.section-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.menu-item {
+    margin-bottom: 20px;
+}
+
+.menu-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.menu-item p {
+    margin: 5px 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+footer {
+    background-color: #FFFFFF;
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #222222;
+    border-top: 1px solid #eee;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+}
