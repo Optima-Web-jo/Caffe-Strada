@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cafe strada</title>
+    <title>Cafe Strada | Italian Café in Abdoun, Amman</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.6/dist/lottie-player.js"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -14,7 +15,7 @@
             color: #222222;
         }
         .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.ibb.co/3mNPD8hX/Caffe-Strada-opaning.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -34,43 +35,49 @@
         .brick-accent {
             background-color: #B3593F;
         }
-        /* splash screen styles */
-        #splash {
+        #animation-overlay {
             position: fixed;
-            z-index: 1000;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #F9F7F2;
+            background-color: rgba(249, 247, 242, 0.95);
             display: flex;
-            align-items: center;
             justify-content: center;
-            animation: fadeOut 0.5s ease-out forwards 2s;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
         }
-        .hidden { display: none; }
-        .coffee {
-            font-size: 3rem;
-            animation: steam 2s ease-in-out forwards;
+        #animation-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
-        @keyframes steam {
-            0% { opacity: 0; transform: translateY(20px); }
-            50% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-20px); }
-        }
-        @keyframes fadeOut {
-            to { opacity: 0; visibility: hidden; }
+        .logo {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
-    <div id="splash"><div class="coffee">&#9749;</div></div>
+    <!-- Animation Overlay -->
+    <div id="animation-overlay">
+        <lottie-player
+            src="https://assets2.lottiefiles.com/packages/lf20_koxvrkrp.json"
+            background="transparent"
+            speed="1"
+            style="width: 200px; height: 200px;"
+            autoplay
+        ></lottie-player>
+    </div>
+
     <!-- Navigation -->
     <nav class="bg-[#F9F7F2] shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <span class="text-2xl font-light tracking-wider text-[#222222]">caffè strada</span>
+                    <img src="https://i.ibb.co/wHTsvnF/Caffe-Strada-Logo.jpg" alt="Caffe Strada Logo" class="logo mr-2">
+                    <span class="text-2xl font-light tracking-wider text-[#222222]">Caffe strada</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
@@ -104,8 +111,8 @@
 
     <!-- Homepage -->
     <section id="home" class="hero-image h-screen flex items-center justify-center text-center">
-        <div class="px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <h1 class="text-4xl md:text-6xl font-light text-white mb-6">Italian-style coffee & panini in smoke-free Abdoun</h1>
+        <div class="px-4 sm:px-6 lg:px-8 max-w-2xl mt-32">
+            <h1 class="text-2xl md:text-3xl font-light text-white mb-8">Enjoy the finest coffee, delicious cuisine, and an unbeatable atmosphere</h1>
             <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#menu" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-[#222222] bg-white hover:bg-[#F9F7F2] md:py-4 md:text-lg md:px-10 transition duration-300">
                     View Menu
@@ -124,6 +131,7 @@
                 <h2 class="text-3xl font-light mb-4">Our Menu</h2>
                 <div class="h-1 w-24 bg-[#B3593F] mx-auto"></div>
             </div>
+            
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Espresso & Coffee -->
                 <div class="bg-white p-8 rounded-lg shadow-sm">
@@ -169,8 +177,9 @@
                         </div>
                     </div>
                 </div>
+                
                 <!-- Paninis & Salads -->
-                <div class="bg-white p-8 rounded-lg shadow-sm">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
                     <div class="flex items-center mb-6">
                         <div class="h-10 w-1 bg-[#D2B48C] mr-4"></div>
                         <h3 class="text-2xl font-light">Paninis & Salads</h3>
@@ -213,6 +222,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <!-- Pastries & Desserts -->
                 <div class="bg-white p-8 rounded-lg shadow-sm">
                     <div class="flex items-center mb-6">
@@ -257,6 +267,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <!-- Tea Collection -->
                 <div class="bg-white p-8 rounded-lg shadow-sm">
                     <div class="flex items-center mb-6">
@@ -312,16 +323,17 @@
                 <h2 class="text-3xl font-light mb-4">Our Story</h2>
                 <div class="h-1 w-24 bg-[#B3593F] mx-auto"></div>
             </div>
+            
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Caffè Strada interior" class="rounded-lg shadow-sm w-full h-auto">
                 </div>
                 <div>
                     <h3 class="text-2xl font-light mb-6">A Taste of Italy in the Heart of Amman</h3>
-                    <p class="mb-4 text-gray-700">Founded in 2018, Caffè Strada brings authentic Italian coffee culture to Abdoun, offering a peaceful retreat from the bustling city. Our name, meaning "street café" in Italian, reflects our commitment to creating a welcoming space where neighbors can gather, work, or simply enjoy a moment of tranquility.</p>
+                    <p class="mb-4 text-gray-700">Founded in 2012, Cafe Strada brings authentic Italian coffee culture to Abdoun, offering a peaceful retreat from the bustling city. Our name, meaning "street café" in Italian, reflects our commitment to creating a welcoming space where neighbors can gather, work, or simply enjoy a moment of tranquility.</p>
                     <p class="mb-4 text-gray-700">We proudly serve Attibassi espresso, a premium blend roasted in Bologna since 1930, ensuring every cup carries the authentic flavors of Italian coffee tradition. Our beans are ethically sourced and freshly roasted to preserve their complex aromas.</p>
                     <p class="mb-4 text-gray-700">As a completely smoke-free establishment, we provide a clean, healthy environment where you can savor the true taste of our coffee and food without compromise. Our European-inspired menu features seasonal ingredients and artisanal preparation methods.</p>
-                    <p class="text-gray-700">Whether you're joining us for your morning espresso, a working lunch, or an evening dessert, we invite you to experience la dolce vita at Caffè Strada.</p>
+                    <p class="text-gray-700">Whether you're joining us for your morning espresso, a working lunch, or an evening dessert, we invite you to experience la dolce vita at Cafe Strada.</p>
+                    
                     <div class="mt-8 flex items-center">
                         <div class="h-12 w-1 bg-[#D2B48C] mr-4"></div>
                         <div>
@@ -341,25 +353,9 @@
                 <h2 class="text-3xl font-light mb-4">Gallery</h2>
                 <div class="h-1 w-24 bg-[#B3593F] mx-auto"></div>
             </div>
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Café interior" class="w-full h-64 object-cover">
-                </div>
-                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1780&q=80" alt="Food presentation" class="w-full h-64 object-cover">
-                </div>
-                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Coffee preparation" class="w-full h-64 object-cover">
-                </div>
-                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1561049939-9cdadaf016e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80" alt="Pastries display" class="w-full h-64 object-cover">
-                </div>
-                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224d24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1890&q=80" alt="Café exterior" class="w-full h-64 object-cover">
-                </div>
-                <div class="gallery-item overflow-hidden rounded-lg shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Coffee art" class="w-full h-64 object-cover">
-                </div>
+                <!-- Placeholder for new images -->
             </div>
         </div>
     </section>
@@ -371,7 +367,8 @@
                 <h2 class="text-3xl font-light mb-4">Contact Us</h2>
                 <div class="h-1 w-24 bg-[#B3593F] mx-auto"></div>
             </div>
-            <div class="grid md:grid-cols-2 gap-12">
+            
+            <div class="grid md:grid-cols-1 gap-12">
                 <div>
                     <h3 class="text-2xl font-light mb-6">Visit Our Café</h3>
                     <div class="space-y-4">
@@ -385,7 +382,7 @@
                             <div class="flex-shrink-0 h-6 w-6 text-[#B3593F] mt-1">
                                 <i class="fas fa-phone-alt"></i>
                             </div>
-                            <p class="ml-3 text-gray-700">+962 6 123 4567</p>
+                            <p class="ml-3 text-gray-700">+962 7 9500 0753</p>
                         </div>
                         <div class="flex items-start">
                             <div class="flex-shrink-0 h-6 w-6 text-[#B3593F] mt-1">
@@ -394,9 +391,11 @@
                             <p class="ml-3 text-gray-700">Daily: 7:00 AM – 11:00 PM</p>
                         </div>
                     </div>
+                    
                     <div class="mt-8">
                         <h4 class="text-lg font-light mb-4">Follow Us</h4>
                         <div class="flex space-x-4">
+                            <!-- Note: Social media links are placeholders; verify actual handles -->
                             <a href="https://instagram.com/caffestradaamman" class="h-10 w-10 rounded-full bg-[#F9F7F2] flex items-center justify-center text-[#222222] hover:text-[#B3593F] transition duration-300">
                                 <i class="fab fa-instagram"></i>
                             </a>
@@ -405,11 +404,11 @@
                             </a>
                         </div>
                     </div>
+                    
                     <div class="mt-8">
-                        <iframe src="https://www.google.com/maps?q=Caff%C3%A8%20Strada%20-%20Abdoun,%20Fawzi%20Al-Mughrabi%20St.%2015,%20Amman&output=embed" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg shadow-sm"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.043020143843!2d35.88531531516138!3d31.95176098122403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca10e1a5a4f9f%3A0x3c9a4e3c1b3e3b1a!2sFawzi%20Al-Mughrabi%20St%2015%2C%20Amman!5e0!3m2!1sen!2sjo!4v1697051234567!5m2!1sen!2sjo" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg shadow-sm"></iframe>
                     </div>
                 </div>
-                <div class="hidden md:block"></div>
             </div>
         </div>
     </section>
@@ -419,20 +418,21 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="text-xl font-light mb-4">caffè strada</h3>
+                    <h3 class="text-xl font-light mb-4">Caffe strada</h3>
                     <p class="text-sm text-gray-400">Italian-style coffee & panini in smoke-free Abdoun</p>
                 </div>
                 <div>
                     <h4 class="text-lg font-light mb-4">Contact</h4>
                     <p class="text-sm text-gray-400">Caffè Strada - Abdoun, Fawzi Al-Mughrabi St. 15</p>
                     <p class="text-sm text-gray-400">Amman, Jordan</p>
-                    <p class="text-sm text-gray-400 mt-2">+962 6 123 4567</p>
+                    <p class="text-sm text-gray-400 mt-2">+962 7 9500 0753</p>
                     <p class="text-sm text-gray-400">info@caffestrada.com</p>
                 </div>
                 <div>
                     <h4 class="text-lg font-light mb-4">Hours</h4>
                     <p class="text-sm text-gray-400">Daily: 7:00 AM – 11:00 PM</p>
                     <div class="mt-4 flex space-x-4">
+                        <!-- Note: Social media links are placeholders; verify actual handles -->
                         <a href="https://instagram.com/caffestradaamman" class="text-gray-400 hover:text-white">
                             <i class="fab fa-instagram"></i>
                         </a>
@@ -443,13 +443,6 @@
                 </div>
             </div>
             <div class="mt-12 pt-8 border-t border-gray-800">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-xs text-gray-500">© 2023 Caffè Strada. All rights reserved.</p>
-                    <div class="flex space-x-6 mt-4 md:mt-0">
-                        <a href="#" class="text-xs text-gray-500 hover:text-gray-400">Privacy Policy</a>
-                        <a href="#" class="text-xs text-gray-500 hover:text-gray-400">Terms of Service</a>
-                    </div>
-                </div>
             </div>
         </div>
     </footer>
@@ -460,6 +453,7 @@
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -467,13 +461,20 @@
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({behavior: 'smooth'});
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                     const mobileMenu = document.getElementById('mobile-menu');
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
                 }
             });
+        });
+
+        // Animation overlay fade-out
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('animation-overlay').classList.add('hidden');
+            }, 3000);
         });
     </script>
 </body>
